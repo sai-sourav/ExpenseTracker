@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Expense Tracker</title>
+    </header>
+    <body>
+        <form id="myform">
+            <h1>Expense Tracker</h1>
+            <label for="amount">choose expenseamount:</label>
+            <input type="text" id="amount" required>
+            <label for="desc">choose description:</label>
+            <input type="text" id="desc" required>
+            <label for="category">choose a category:</label>
+                <select id="category" required>
+                    <option value="Fuel">Fuel</option>
+                    <option value="Movie">Movie</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Food">Food</option>
+                </select>
+            <input type="submit" value="AddExpense">
+        </form>
+        <ul id="items" class="list-group">
+            <!-- <li class="list-group-item">Item 1 
+                    <button class="btn btn-default btn-sm float-right edit">Edit</button>
+                    <button class="btn btn-danger btn-sm float-right delete">x</button>
+            </li> -->
+        </ul>
+    </body>
+    <script src="index.js">
+    </script>
+</html>
