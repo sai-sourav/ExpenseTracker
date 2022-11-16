@@ -25,8 +25,8 @@ async function onsubmit(e){
     // })
     // additem(amount,desc,category);
     try{
-        let result = await axios.post(`${URL}/`,{ amount, desc, category });
-        let show = await new Promise.resolve(showlist());
+        await axios.post(`${URL}/`,{ amount, desc, category });
+        await new Promise.resolve(showlist());
     }
     catch(e){console.log(e)};
     
@@ -55,7 +55,7 @@ async function showlist(){
 function additem(obj){
 
     let li = document.createElement('li');
-    let text = `amount=${obj.amount} description=${obj.desc} category=${obj.category}`
+    let text = `amount=${obj.amount} description=${obj.desc} category=${obj.category} `
     li.appendChild(document.createTextNode(text));
     li.id = `${obj._id}`
 
@@ -64,11 +64,11 @@ function additem(obj){
     editbtn.className = "btn btn.default btn.sm float-right edit";
     editbtn.appendChild(document.createTextNode("EDIT"));
     li.appendChild(editbtn);
-
+    
     // add del button
     let delbtn = document.createElement('button');
     delbtn.className = "btn btn.danger btn.sm float-right delete";
-    delbtn.appendChild(document.createTextNode("X"));
+    delbtn.appendChild(document.createTextNode("DELETE"));
     li.appendChild(delbtn);
 
     // append li to list
@@ -85,7 +85,7 @@ async function deleteitem(e){
         //     itemlist.removeChild(li);
         // })
         try{
-            let resp = await axios.delete(`${URL}/${li.id}`);
+            await axios.delete(`${URL}/${li.id}`);
             itemlist.removeChild(li);
         }
         catch(e){
@@ -116,7 +116,7 @@ async function edititem(e){
         //     itemlist.removeChild(li);
         // })
         try{
-            let resp = await axios.delete(`${URL}/${li.id}`);
+            await axios.delete(`${URL}/${li.id}`);
             itemlist.removeChild(li);
         }catch(e){
             console.log(e);
